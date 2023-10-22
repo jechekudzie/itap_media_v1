@@ -14,7 +14,6 @@ class LineItemController extends Controller
         $lineItems = $category->lineItems;
 
         //dd($lineItems);
-
         return view('admin.line_items.index', compact('lineItems', 'category'));
     }
 

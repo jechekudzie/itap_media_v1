@@ -6,6 +6,7 @@ use App\Http\Controllers\LineItemController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PackageLineItemController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +15,16 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/admin/', function () {
+Route::get('/', [SiteController::class,'index']);
+Route::get('/services', [SiteController::class,'services']);
+Route::get('/service/categories', [SiteController::class,'service_categories']);
+Route::get('/category/packages', [SiteController::class,'category_packages']);
+
+Route::get('/admin', function () {
     notify()->success('Laravel Notify is awesome!');
-    return view('welcome');
+    return view('admin.index');
 });
+
 
 /*
 |--------------------------------------------------------------------------
